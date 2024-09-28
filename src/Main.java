@@ -12,7 +12,7 @@ public static void main(String[] args)
         Animal  giraffe2=  new Animal("giraffe2","giraffe2",6,true);
         Animal tigger= new Animal("tigger","tiger",5,true);
 
-        ///ajouter l animal au zoo
+        ////ajouter l animal au zoo
         System.out.println("============= Ajout dans le myZoo ================");
         System.out.println(myZoo.addAnimal(lion));
         System.out.println(myZoo.addAnimal(elephant));
