@@ -16,6 +16,7 @@ public static void main(String[] args)
         System.out.println("============= Ajout dans le myZoo ================");
         System.out.println(myZoo.addAnimal(lion));
         System.out.println(myZoo.addAnimal(elephant));
+
         System.out.println(myZoo.addAnimal(giraffe2));
         System.out.println(myZoo.addAnimal(lion2));
         System.out.println("============= Ajout dans le myZoo2 ================");
@@ -33,14 +34,15 @@ public static void main(String[] args)
          System.out.println("Resultat de recherche de lion:"+myZoo.searchAnimal(lion));
          System.out.println("Resultat de recherche de elephant : "+myZoo.searchAnimal(elephant));
          System.out.println("Resultat de recherche de lion2: "+myZoo.searchAnimal(lion2));
-            //resultat de recherche d'un autre animal lion2  identique au premier lion affiche l index de premier animal
 
          //Rcherche d un animal n'est pas ajouter au zoo (giraffe)
          System.out.println("Resultat de recherche giraffe: "+myZoo.searchAnimal(giraffe));
 
         System.out.println("============= Supprimer ================");
          //Supprimer animal existe dans le zoo(elephant)
+
          System.out.println("Elephant du zoo1 supprimer: "+myZoo.removeAnimal(elephant));
+        myZoo.afficher();
          //supprimer animal n existe pas dans le zoo(giraffe)
         System.out.println("Giraffe de zoo1 supprimé: "+myZoo.removeAnimal(giraffe));
         System.out.println("================ IsZooFull myZoo ================");

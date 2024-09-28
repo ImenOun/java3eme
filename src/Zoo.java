@@ -2,7 +2,7 @@ public class Zoo {
     Animal[] animals;
     String name;
     String city;
-    final int nbrCages=25;
+    final int nbrCages=4;
     int animalCount=0;
     public Zoo(String name,String city)
     {
@@ -42,7 +42,7 @@ public class Zoo {
     {
         return "Zoo Name: "+name+" ,City: "+city+" ,Nombre de Cage: "+nbrCages;
     }
-    //instruction 11
+
    public int searchAnimal(Animal animal)
    {
 
@@ -73,12 +73,11 @@ public class Zoo {
            return false;
        }
        //supprimer  l animal
-       for(int i=0;i<animalCount-1;i++)
+       for(int i=index;i<animalCount-1;i++)
        {
            animals[i]=animals[i+1];
 
        }
-       // supprimer
        animals[animalCount-1]=null;
        //reduire compteur
        animalCount--;
