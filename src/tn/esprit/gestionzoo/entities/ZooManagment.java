@@ -1,3 +1,5 @@
+package tn.esprit.gestionzoo.entities;
+
 import java.util.Scanner;
 
 public class ZooManagment {

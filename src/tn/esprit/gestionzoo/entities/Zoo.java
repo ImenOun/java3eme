@@ -1,9 +1,10 @@
+package tn.esprit.gestionzoo.entities;
 public class Zoo {
-    Animal[] animals;
-    String name;
-    String city;
-    final int nbrCages=4;
-    int animalCount=0;
+    private Animal[] animals;
+    private String name;
+    private String city;
+    private final int nbrCages=25;
+    private int animalCount=0;
     public Zoo(String name,String city)
     {
         this.animals=new Animal[25];
@@ -12,21 +13,35 @@ public class Zoo {
         this.city=city;
 
     }
+    //getters et settes
+
+    public boolean setName(String name) {
+        if(name!=null && !name.trim().isEmpty() )
+        {
+            this.name=name;
+            return true;
+        }
+        return false;
+    }
+    public String getName() {
+        return name;
+    }
+
     //methode pour ajouter un animal au zoo
     public boolean addAnimal(Animal animal) {
         //verifier maximmum dans le zoo
-        if(animalCount>=nbrCages)
+        if(isZooFull())
         {
-            System.out.println("Impossible d ajouter l animal:"+animal.name+" Le zoo est plein ");
+            System.out.println("Impossible d ajouter l animal:"+animal.getNameA()+" Le zoo est plein ");
             return false;
         }
 
         //ajouter un animal une seul fois
         for(int j=0 ;j<animalCount; j++)
         {
-            if(animals[j].name.equals(animal.name))
+            if(animals[j].getNameA().equals(animal.getNameA()))
             {
-              System.out.println("L'animal: "+ animal.name +" est deja dans le zoo ");
+              System.out.println("L'animal: "+ animal.getNameA() +" est deja dans le zoo ");
                 return false;
             }
 
@@ -34,6 +49,7 @@ public class Zoo {
         //ajouter un animal
         animals[animalCount]=animal;
         animalCount++;
+        System.out.println("L'animal: "+animal.getNameA()+" a été ajouté avec succées.");
         return true;
     }
 
@@ -48,7 +64,7 @@ public class Zoo {
 
        for(int i=0;i<animalCount;i++)
        {
-           if(animals[i].name==animal.name)
+           if(animals[i].getNameA()==animal.getNameA())
            {
                return i;
            }
@@ -69,7 +85,7 @@ public class Zoo {
        //si l animal n existe pas
        if(index==-1)
        {
-           System.out.println("Animal: "+animal.name+" n existe pas");
+           System.out.println("Animal: "+animal.getNameA()+" n existe pas");
            return false;
        }
        //supprimer  l animal
