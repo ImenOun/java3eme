@@ -1,10 +1,11 @@
 package tn.esprit.gestionzoo.entities;
-public class Animal {
+public sealed class  Animal permits Aquatic,Terestial {
 
     private  String family;
     private String name;
     private int age;
     private boolean isMammal;
+    public Animal(){}
     public Animal(String family,String name,int age,boolean isMammal)
     {
         this.family=family;
@@ -14,6 +15,7 @@ public class Animal {
 
 
     }
+   @Override
     public String toString()
   {
       return "Animal Name: "+name+" ,Family: "+family+" ,Age: "+age+" ,IsMammal: "+isMammal;

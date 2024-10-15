@@ -1,6 +1,6 @@
 package tn.esprit.gestionzoo.main;
-import tn.esprit.gestionzoo.entities.Zoo;
-import  tn.esprit.gestionzoo.entities.Animal;
+import tn.esprit.gestionzoo.entities.*;
+
 public class Main {
 public static void main(String[] args)
     {
@@ -71,5 +71,20 @@ public static void main(String[] args)
         else {
             System.out.println("les deux zoo ont le même nombre d animaux");
         }
+        System.out.println("==============Créer Instance(aquatic,teristial)==================");
+        Aquatic aquatic= new Aquatic("hout","hota",5,true,"fel bhar");
+        Terestial terestial= new Terestial("sala7ef ninga","soula7fet",10,false,4);
+        Dolphin dolphin=new Dolphin("dalafin","delphina",9,true,"mohiit",10.5f);
+        Penguin penguin=new Penguin("batri9","batri9",8,false,"thelj",2.5f);
+
+        System.out.println(aquatic);
+        System.out.println(terestial);
+        System.out.println(dolphin);
+        System.out.println(penguin);
+        System.out.println("=======================Appel de la fonction swim()=============================");
+        aquatic.swim();
+        dolphin.swim();
+        penguin.swim();
+        System.out.println("================================================================");
     }
 }
