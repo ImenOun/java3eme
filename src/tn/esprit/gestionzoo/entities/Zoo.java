@@ -5,16 +5,59 @@ public class Zoo {
     private String city;
     private final int nbrCages=25;
     private int animalCount=0;
+     int nbrAquatic=0;
+    //tableau pour les animaux aquatic
+     Aquatic [] aquaticAnimal=new Aquatic[10];
+
     public Zoo(String name,String city)
     {
         this.animals=new Animal[25];
 
         this.name=name;
         this.city=city;
+    }
 
+
+    public void addAquaticAnimal(Aquatic aquatic)
+    {
+        if(nbrAquatic<10)
+        {
+            aquaticAnimal[nbrAquatic]=aquatic;
+            nbrAquatic++;
+            System.out.println("l'Animal: "+aquatic.getNameA()+" est ajoutée avec succées.");
+        }
+        else
+        {
+            System.out.println("Impossible d ajouter l animal.");
+        }
+    }
+
+    public int getNbrAquatic()
+    {
+        return nbrAquatic;
     }
     //getters et settes
 
+    public Aquatic[] getAquaticAnimal() {
+        return aquaticAnimal;
+    }
+
+    public  float maxPenguinSwimmingDepth()
+    {
+         float maxDepth=0.f;
+         for(int i=0;i<nbrAquatic;i++)
+         {
+             if(aquaticAnimal[i] instanceof Penguin)
+             {
+                 Penguin penguin=(Penguin) aquaticAnimal[i];
+                 if(penguin.swimmingDepth>maxDepth)
+                 {
+                     maxDepth=penguin.swimmingDepth;
+                 }
+             }
+         }
+         return maxDepth;
+    }
     public boolean setName(String name) {
         if(name!=null && !name.trim().isEmpty() )
         {
@@ -76,6 +119,10 @@ public class Zoo {
        for(int i=0;i<animalCount;i++)
        {
            System.out.println(animals[i]);
+       }
+       for(int j=0;j<nbrAquatic;j++)
+       {
+           System.out.println(aquaticAnimal[j]);
        }
    }
 

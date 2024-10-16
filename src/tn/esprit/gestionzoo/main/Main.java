@@ -72,19 +72,35 @@ public static void main(String[] args)
             System.out.println("les deux zoo ont le même nombre d animaux");
         }
         System.out.println("==============Créer Instance(aquatic,teristial)==================");
-        Aquatic aquatic= new Aquatic("hout","hota",5,true,"fel bhar");
+       // Aquatic aquatic= new Aquatic("hout","hota",5,true,"fel bhar");
         Terestial terestial= new Terestial("sala7ef ninga","soula7fet",10,false,4);
         Dolphin dolphin=new Dolphin("dalafin","delphina",9,true,"mohiit",10.5f);
         Penguin penguin=new Penguin("batri9","batri9",8,false,"thelj",2.5f);
-
-        System.out.println(aquatic);
+        Penguin penguin2=new Penguin("batri9 e5er","batri9aa",7,false,"ba7thee 5oha",50.0f);
+        //System.out.println(aquatic);
         System.out.println(terestial);
         System.out.println(dolphin);
         System.out.println(penguin);
+
         System.out.println("=======================Appel de la fonction swim()=============================");
-        aquatic.swim();
+       // aquatic.swim();
         dolphin.swim();
         penguin.swim();
-        System.out.println("================================================================");
+        System.out.println("======================Ajout d un animal aquatic au zoo======================");
+        myZoo.addAquaticAnimal(dolphin);
+        myZoo.addAquaticAnimal(penguin);
+        myZoo.addAquaticAnimal(penguin2);
+        System.out.println("============================================");
+
+        myZoo.afficher();
+        System.out.println("============================================");
+        myZoo2.afficher();
+        System.out.println("=================Appel de la fonction swim dans le tableau aquaticAnimal de myZoo====================");
+        for(int i=0;i< myZoo.getNbrAquatic();i++)
+        {
+            myZoo.getAquaticAnimal()[i].swim();
+        }
+        System.out.println("=====================Afficher max depth penguin==========================");
+        System.out.println("Le profondeur maximal des penguins est: "+myZoo.maxPenguinSwimmingDepth()+" Métres");
     }
 }
