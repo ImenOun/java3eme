@@ -102,5 +102,17 @@ public static void main(String[] args)
         }
         System.out.println("=====================Afficher max depth penguin==========================");
         System.out.println("Le profondeur maximal des penguins est: "+myZoo.maxPenguinSwimmingDepth()+" Métres");
+        System.out.println("=====================Display number of aquatic animal by type de zoo1==========================");
+        myZoo.displayNumberOfAquaticByType();
+        System.out.println("=====================Display number of aquatic animal by type de zoo2==========================");
+        myZoo2.displayNumberOfAquaticByType();
+        System.out.println("=====================equals pour 2 animaux aquatique identique==========================");
+        //meme donner que l autre Dolphin (dolphin et dolphin2 sont identique)
+        Dolphin dolphin2=new Dolphin("dalafin","delphina",9,true,"mohiit",10.5f);
+        //penguin et penguin2 sont indentique
+        Penguin penguin3=new Penguin("batri9","batri9",8,false,"thelj",2.5f);
+        System.out.println("dolphin et dolphin2 sont ils identiques?: "+dolphin.equals(dolphin2));
+        System.out.println("penguin et penguin2 sont ils identiques?: "+penguin.equals(penguin3));
+        System.out.println("penguin2 et penguin3 sont ils identiques?: "+penguin3.equals(penguin2));
     }
 }

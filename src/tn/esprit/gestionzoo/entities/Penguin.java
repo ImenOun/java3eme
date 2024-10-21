@@ -11,6 +11,10 @@ public class Penguin extends Aquatic {
         this.swimmingDepth = swimmingDepth;
     }
 
+    public float getSwimmingDepth() {
+        return swimmingDepth;
+    }
+
     @Override
     public String toString() {
         return super.toString() + " ,SwimmingDepth: " + swimmingDepth;
