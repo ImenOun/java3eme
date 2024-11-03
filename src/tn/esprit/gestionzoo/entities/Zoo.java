@@ -54,7 +54,9 @@ public class Zoo {
         return nbrAquatic;
     }
     //getters et settes
-
+     public  int getAnimalCount(){
+        return animalCount;
+     }
     public Aquatic[] getAquaticAnimal() {
         return aquaticAnimal;
     }
@@ -88,12 +90,12 @@ public class Zoo {
     }
 
     //methode pour ajouter un animal au zoo
-    public boolean addAnimal(Animal animal) {
+    public void addAnimal(Animal animal) throws ZooFullException {
         //verifier maximmum dans le zoo
-        if(isZooFull())
+       if(isZooFull())
         {
-            System.out.println("Impossible d ajouter l animal:"+animal.getNameA()+" Le zoo est plein ");
-            return false;
+            throw new ZooFullException ("Impossible d ajouter l animal:"+animal.getNameA()+" Le zoo est plein ");
+
         }
 
         //ajouter un animal une seul fois
@@ -102,7 +104,7 @@ public class Zoo {
             if(animals[j].getNameA().equals(animal.getNameA()))
             {
               System.out.println("L'animal: "+ animal.getNameA() +" est deja dans le zoo ");
-                return false;
+                return;
             }
 
         }
@@ -110,7 +112,7 @@ public class Zoo {
         animals[animalCount]=animal;
         animalCount++;
         System.out.println("L'animal: "+animal.getNameA()+" a été ajouté avec succées.");
-        return true;
+
     }
 
 

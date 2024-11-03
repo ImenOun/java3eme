@@ -26,16 +26,72 @@ public static void main(String[] args)
         }
         /////ajouter l animal au zoo
         System.out.println("============= Ajout dans  myZoo ================");
-        System.out.println(myZoo.addAnimal(lion));
-        System.out.println(myZoo.addAnimal(elephant));
-
-        System.out.println(myZoo.addAnimal(giraffe2));
-        System.out.println(myZoo.addAnimal(lion2));
+       try{
+           myZoo.addAnimal(lion);
+           System.out.println("nbr d animaux du zoo= "+myZoo.getAnimalCount());
+       }
+       catch(ZooFullException e){
+           System.out.println(e.getMessage());
+    }
+        try {
+            myZoo.addAnimal(elephant);
+            System.out.println("nombre d animaux du zoo= "+myZoo.getAnimalCount());
+        }
+        catch(ZooFullException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try {
+            myZoo.addAnimal(giraffe2);
+            System.out.println("nbr d animaux du zoo= "+myZoo.getAnimalCount());
+        }
+        catch(ZooFullException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try {
+            myZoo.addAnimal(lion2);
+            System.out.println("nbr d animaux du zoo= "+myZoo.getAnimalCount());
+        }
+        catch(ZooFullException e)
+        {
+            System.out.println(e.getMessage());
+        }
         System.out.println("============= Ajout dans  myZoo2 ================");
-        System.out.println(myZoo2.addAnimal(lion));
-        System.out.println(myZoo2.addAnimal(elephant));
-        System.out.println(myZoo2.addAnimal(giraffe));
-        System.out.println(myZoo2.addAnimal(tigger));
+        try{
+            myZoo2.addAnimal(lion);
+            System.out.println("nombre d animaux du zoo= "+myZoo2.getAnimalCount());
+        }
+        catch (ZooFullException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try{
+            myZoo2.addAnimal(elephant);
+            System.out.println("nombre d animaux du zoo= "+myZoo2.getAnimalCount());
+        }
+        catch(ZooFullException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            myZoo2.addAnimal(giraffe);
+            System.out.println("nombre d animaux du zoo= "+myZoo2.getAnimalCount());
+        }
+        catch(ZooFullException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try{
+            myZoo2.addAnimal(tigger);
+            System.out.println("nombre d animaux du zoo= "+myZoo2.getAnimalCount());
+
+        }
+        catch(ZooFullException e)
+        {
+            System.out.println(e.getMessage());
+        }
         //afficher les animaux
         System.out.println("============= Affichage myZoo ================");
         myZoo.afficher();
