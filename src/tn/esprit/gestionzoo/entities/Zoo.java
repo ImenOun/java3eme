@@ -6,7 +6,7 @@ public class Zoo {
     private final int nbrCages=25;
     private int animalCount=0;
      int nbrAquatic=0;
-    //tableau pour les animaux aquatic
+    ///tableau pour les animaux aquatic
      Aquatic [] aquaticAnimal=new Aquatic[10];
 
     public Zoo(String name,String city)
