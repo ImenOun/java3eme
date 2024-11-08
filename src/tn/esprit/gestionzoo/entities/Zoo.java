@@ -3,7 +3,7 @@ public class Zoo {
     private Animal[] animals;
     private String name;
     private String city;
-    private final int nbrCages=25;
+    private final int nbrCages=3;
     private int animalCount=0;
      int nbrAquatic=0;
     ///tableau pour les animaux aquatic
@@ -11,7 +11,7 @@ public class Zoo {
 
     public Zoo(String name,String city)
     {
-        this.animals=new Animal[25];
+        this.animals=new Animal[3];
 
         this.name=name;
         this.city=city;
@@ -90,11 +90,15 @@ public class Zoo {
     }
 
     //methode pour ajouter un animal au zoo
-    public void addAnimal(Animal animal) throws ZooFullException {
+    public void addAnimal(Animal animal) throws ZooFullException,InvalidAgeException {
+        // Vérifier si l'animal a un âge valide
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException("L'âge de l'animal ne peut pas être négatif!!!!!!");
+        }
         //verifier maximmum dans le zoo
        if(isZooFull())
         {
-            throw new ZooFullException ("Impossible d ajouter l animal:"+animal.getNameA()+" Le zoo est plein ");
+            throw new ZooFullException ("Impossible d ajouter l animal Le zoo est plein!!!!!!!! ");
 
         }
 
