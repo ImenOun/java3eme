@@ -8,22 +8,22 @@ public static void main(String[] args)
         Zoo myZoo2=new Zoo("Friguia","Nabeul");
         //Creer un zoo avec un nom vide
         Zoo Zoo3=new Zoo("","Tunis");
-        if(Zoo3.getName()==null || Zoo3.getName().isEmpty()){
+       /* if(Zoo3.getName()==null || Zoo3.getName().isEmpty()){
             System.out.println("Erreur Le nom du Zoo ne peut pas etre vide");
-        }
+        }*/
 
         Animal lion= new Animal("lion","Lion",5,true);
         Animal elephant= new Animal("elephant","elephant",10,true);
         Animal giraffe=  new Animal("giraffe","giraffe",6,true);
         //animal identique au premier
         Animal lion2= new Animal("lion","Lion",5,true);
-        Animal giraffe2=  new Animal("giraffe2","giraffe2",6,true);
+        Animal giraffe2=  new Animal("giraffe2","giraffe2",-6,true);
         Animal tigger= new Animal("tigger","tiger",5,true);
         /// creer animal avec age negatif
-        Animal bhim=new Animal("bhayem","Bhim",-2,false);
-        if(bhim.getAge()<0){
+       // Animal bhim=new Animal("bhayem","Bhim",-2,false);
+       /* if(bhim.getAge()<0){
             System.out.println("Erreur:l age de l animal est negatif!!!");
-        }
+        }*/
         /////ajouter l animal au zoo
         System.out.println("============= Ajout dans  myZoo ================");
        try{
@@ -33,6 +33,10 @@ public static void main(String[] args)
        catch(ZooFullException e){
            System.out.println(e.getMessage());
     }
+       catch (InvalidAgeException e) {
+           System.out.println("Erreur : " + e.getMessage());
+       }
+
         try {
             myZoo.addAnimal(elephant);
             System.out.println("nombre d animaux du zoo= "+myZoo.getAnimalCount());
@@ -41,6 +45,10 @@ public static void main(String[] args)
         {
             System.out.println(e.getMessage());
         }
+        catch (InvalidAgeException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+
         try {
             myZoo.addAnimal(giraffe2);
             System.out.println("nbr d animaux du zoo= "+myZoo.getAnimalCount());
@@ -49,6 +57,10 @@ public static void main(String[] args)
         {
             System.out.println(e.getMessage());
         }
+        catch (InvalidAgeException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+
         try {
             myZoo.addAnimal(lion2);
             System.out.println("nbr d animaux du zoo= "+myZoo.getAnimalCount());
@@ -57,6 +69,10 @@ public static void main(String[] args)
         {
             System.out.println(e.getMessage());
         }
+        catch (InvalidAgeException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+
         System.out.println("============= Ajout dans  myZoo2 ================");
         try{
             myZoo2.addAnimal(lion);
@@ -66,6 +82,10 @@ public static void main(String[] args)
         {
             System.out.println(e.getMessage());
         }
+        catch (InvalidAgeException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+
         try{
             myZoo2.addAnimal(elephant);
             System.out.println("nombre d animaux du zoo= "+myZoo2.getAnimalCount());
@@ -73,6 +93,9 @@ public static void main(String[] args)
         catch(ZooFullException e)
         {
             System.out.println(e.getMessage());
+        }
+        catch (InvalidAgeException e) {
+            System.out.println("Erreur : " + e.getMessage());
         }
 
         try{
@@ -83,6 +106,10 @@ public static void main(String[] args)
         {
             System.out.println(e.getMessage());
         }
+        catch (InvalidAgeException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+
         try{
             myZoo2.addAnimal(tigger);
             System.out.println("nombre d animaux du zoo= "+myZoo2.getAnimalCount());
@@ -92,6 +119,10 @@ public static void main(String[] args)
         {
             System.out.println(e.getMessage());
         }
+        catch (InvalidAgeException e) {
+            System.err.println("Erreur : " + e.getMessage());
+        }
+
         //afficher les animaux
         System.out.println("============= Affichage myZoo ================");
         myZoo.afficher();
@@ -128,9 +159,13 @@ public static void main(String[] args)
             System.out.println("les deux zoo ont le même nombre d animaux");
         }
         System.out.println("==============Créer Instance(aquatic,teristial)==================");
-       // Aquatic aquatic= new Aquatic("hout","hota",5,true,"fel bhar");
+       //Aquatic aquatic= new Aquatic("hout","hota",5,true,"fel bhar");
         Terestial terestial= new Terestial("sala7ef ninga","soula7fet",10,false,4);
+        Terestial terestial2= new Terestial("sala7ef ninga","soula7fet antha",10,false,4);
+
         Dolphin dolphin=new Dolphin("dalafin","delphina",9,true,"mohiit",10.5f);
+        Dolphin dolphin3=new Dolphin("dalafin","delphineee",9,true,"mohiit",10.5f);
+
         Penguin penguin=new Penguin("batri9","batri9",8,false,"thelj",2.5f);
         Penguin penguin2=new Penguin("batri9 e5er","batri9aa",7,false,"ba7thee 5oha",50.0f);
         //System.out.println(aquatic);
@@ -170,5 +205,15 @@ public static void main(String[] args)
         System.out.println("dolphin et dolphin2 sont ils identiques?: "+dolphin.equals(dolphin2));
         System.out.println("penguin et penguin2 sont ils identiques?: "+penguin.equals(penguin3));
         System.out.println("penguin2 et penguin3 sont ils identiques?: "+penguin3.equals(penguin2));
+
+        System.out.println("===================== know the food of the animals ==========================");
+        penguin.eatMeat(Food.MEAT);
+        penguin2.eatMeat(Food.PLANT);
+
+        dolphin3.eatMeat(Food.BOTH);
+
+        terestial.eatMeatAndPlant(Food.MEAT);
+        terestial2.eatMeatAndPlant(Food.BOTH);
+        terestial2.eatPlant(Food.PLANT);
     }
 }
